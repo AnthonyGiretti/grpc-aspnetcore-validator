@@ -6,6 +6,7 @@ using Grpc.Core;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace Grpc.AspNetCore.FluentValidation.Test
