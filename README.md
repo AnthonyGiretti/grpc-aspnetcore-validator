@@ -33,3 +33,8 @@ public class Startup
 ```
 
 Then, If the message is invalid, Grpc Validator return with `InvalidArgument` code and empty message object.
+
+
+## How to test my validation
+
+If you want to write integration test. [This test sample](src/Grpc.AspNetCore.FluentValidation.Test/IntegrationTest.cs) may help you.
