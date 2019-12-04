@@ -3,7 +3,7 @@ Request message validator middleware for grpc.aspnet
 
 ![](https://github.com/enif-lee/grpc-dotnet-validator/workflows/Build/badge.svg)
 ![](https://github.com/enif-lee/grpc-dotnet-validator/workflows/Test/badge.svg)
-![Nuget](https://img.shields.io/nuget/v/GrpcExtensions.AspNetCore.Validation)
+[![Nuget](https://img.shields.io/nuget/v/GrpcExtensions.AspNetCore.Validation)](https://www.nuget.org/packages/GrpcExtensions.AspNetCore.Validation)
 
 
 ## How to use.
