@@ -6,6 +6,8 @@
         <Authors>Jinseoung Lee</Authors>
         <PackageTags>grpc;dotnet;validator;validation;request-validation;aspnetcore</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageProjectUrl>https://github.com/enif-lee/grpc-dotnet-validator</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/enif-lee/grpc-dotnet-validator/blob/master/LICENSE</PackageLicenseUrl>
         <TargetFramework>netcoreapp3.0</TargetFramework>
     </PropertyGroup>
 
