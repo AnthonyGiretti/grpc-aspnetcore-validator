@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using FluentValidation;
+using Grpc.AspNetCore.FluentValidation.Internal;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Grpc.AspNetCore.FluentValidation

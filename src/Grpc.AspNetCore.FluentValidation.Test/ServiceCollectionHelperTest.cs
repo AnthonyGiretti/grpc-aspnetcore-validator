@@ -1,4 +1,5 @@
 using FluentValidation;
+using Grpc.AspNetCore.FluentValidation.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 

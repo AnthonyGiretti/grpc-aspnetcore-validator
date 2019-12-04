@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using FluentValidation;
+using Grpc.AspNetCore.FluentValidation.Internal;
 using Grpc.AspNetCore.FluentValidation.SampleRpc;
 using Grpc.Core;
 using Grpc.Net.Client;
@@ -27,11 +28,7 @@ namespace Grpc.AspNetCore.FluentValidation.Test
         public async Task Should_ResponseMessage_When_MessageIsValid()
         {
             // Given
-            using var httpClient = _factory.CreateClientForGrpc();
-            var client = new Greeter.GreeterClient(GrpcChannel.ForAddress(httpClient.BaseAddress, new GrpcChannelOptions
-            {
-                HttpClient = httpClient
-            }));
+            var client = new Greeter.GreeterClient(_factory.CreateGrpcChannel());
 
             // When
             await client.SayHelloAsync(new HelloRequest
@@ -46,11 +43,7 @@ namespace Grpc.AspNetCore.FluentValidation.Test
         public async Task Should_ThrowInvalidArgument_When_NameOfMessageIsEmpty()
         {
             // Given
-            using var httpClient = _factory.CreateClientForGrpc();
-            var client = new Greeter.GreeterClient(GrpcChannel.ForAddress(httpClient.BaseAddress, new GrpcChannelOptions
-            {
-                HttpClient = httpClient
-            }));
+            var client = new Greeter.GreeterClient(_factory.CreateGrpcChannel());
 
             // When
             async Task Action()

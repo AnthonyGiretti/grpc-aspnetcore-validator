@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Grpc.Core.Interceptors;
 
-namespace Grpc.AspNetCore.FluentValidation
+namespace Grpc.AspNetCore.FluentValidation.Internal
 {
-    public class ValidationInterceptor : Interceptor
+    internal class ValidationInterceptor : Interceptor
     {
         private readonly IValidatorLocator _locator;
 

@@ -1,7 +1,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Grpc.AspNetCore.FluentValidation
+namespace Grpc.AspNetCore.FluentValidation.Internal
 {
     internal static class ObjectCreator<T>
     {
