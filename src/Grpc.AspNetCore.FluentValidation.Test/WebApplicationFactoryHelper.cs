@@ -8,20 +8,21 @@ namespace Grpc.AspNetCore.FluentValidation.Test
 {
     public static class WebApplicationFactoryHelper
     {
+        public static HttpClient CreateClientForGrpc(this WebApplicationFactory<Startup> factory)
+        {
+            return factory.CreateDefaultClient(new ResponseVersionHandler());
+        }
+
         private class ResponseVersionHandler : DelegatingHandler
         {
-            protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+            protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
+                CancellationToken cancellationToken)
             {
                 var response = await base.SendAsync(request, cancellationToken);
                 response.Version = request.Version;
 
                 return response;
             }
-        }
-
-        public static HttpClient CreateClientForGrpc(this WebApplicationFactory<Startup> factory)
-        {
-            return factory.CreateDefaultClient(new ResponseVersionHandler());
         }
     }
 }

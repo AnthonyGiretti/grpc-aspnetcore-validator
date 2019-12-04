@@ -1,11 +1,7 @@
-using System;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
-using FluentValidation.Results;
 using Grpc.Core;
 using Grpc.Core.Interceptors;
-using Microsoft.Extensions.Logging;
 
 namespace Grpc.AspNetCore.FluentValidation
 {
@@ -37,23 +33,11 @@ namespace Grpc.AspNetCore.FluentValidation
                     var message = string.Join("\n", errors);
 
                     context.Status = new Status(StatusCode.InvalidArgument, message);
-                    return ObjectCreator<TResponse>.Build();
+                    return ObjectCreator<TResponse>.Empty;
                 }
             }
 
             return await continuation(request, context);
-        }
-    }
-
-    public static class ObjectCreator<T>
-    {
-        private static readonly Type Type = typeof(T);
-        private static readonly Expression[] Ex = {Expression.New(Type)};
-        private static readonly BlockExpression Block = Expression.Block(Type, Ex);
-        private static readonly Func<T> Builder = Expression.Lambda<Func<T>>(Block).Compile();
-        public static T Build()
-        {
-            return Builder();
         }
     }
 }

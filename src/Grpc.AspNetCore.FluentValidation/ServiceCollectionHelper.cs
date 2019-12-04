@@ -21,9 +21,7 @@ namespace Grpc.AspNetCore.FluentValidation
                 t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IValidator<>));
 
             if (validatorType == null)
-            {
                 throw new AggregateException(implementationType.Name + "is not implement with IValidator<>.");
-            }
 
             var messageType = validatorType.GetGenericArguments().First();
             var serviceType = typeof(IValidator<>).MakeGenericType(messageType);
