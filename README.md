@@ -1,10 +1,15 @@
 # grpc-dotnet-validator
-Request message validator middleware for grpc.aspnet
+Request message validator middleware for [Grpc.AspNetCore](https://github.com/grpc/grpc-dotnet)
 
 ![](https://github.com/enif-lee/grpc-dotnet-validator/workflows/Build/badge.svg)
 ![](https://github.com/enif-lee/grpc-dotnet-validator/workflows/Test/badge.svg)
 [![Nuget](https://img.shields.io/nuget/v/GrpcExtensions.AspNetCore.Validation)](https://www.nuget.org/packages/GrpcExtensions.AspNetCore.Validation)
 
+
+## Feature
+
+- Support async validation
+- Support IoC LifeStyle scopes and dependency injection
 
 ## How to use.
 
@@ -38,3 +43,14 @@ Then, If the message is invalid, Grpc Validator return with `InvalidArgument` co
 ## How to test my validation
 
 If you want to write integration test. [This test sample](src/Grpc.AspNetCore.FluentValidation.Test/IntegrationTest.cs) may help you.
+
+
+## Versioning
+
+This pakage`s versioning is following version of [Grpc.AspNetCore](https://github.com/grpc/grpc-dotnet)
+
+
+## Road Map
+
+- [ ] Provide customizable error message hook.
+- [ ] Inline message validator
