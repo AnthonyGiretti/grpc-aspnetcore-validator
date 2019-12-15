@@ -8,10 +8,12 @@ namespace Grpc.AspNetCore.FluentValidation.Internal
     internal class ValidationInterceptor : Interceptor
     {
         private readonly IValidatorLocator _locator;
+        private readonly IValidatorErrorMessageHandler _handler;
 
-        public ValidationInterceptor(IValidatorLocator locator)
+        public ValidationInterceptor(IValidatorLocator locator, IValidatorErrorMessageHandler handler)
         {
             _locator = locator;
+            _handler = handler;
         }
 
         public override async Task<TResponse> UnaryServerHandler<TRequest, TResponse>(
@@ -25,13 +27,7 @@ namespace Grpc.AspNetCore.FluentValidation.Internal
 
                 if (!results.IsValid)
                 {
-                    var errors = results
-                        .Errors
-                        .Select(f => $"Property {f.PropertyName} failed validation. Error was {f.ErrorMessage}")
-                        .ToList();
-
-                    var message = string.Join("\n", errors);
-
+                    var message = await _handler.HandleAsync(results.Errors);
                     context.Status = new Status(StatusCode.InvalidArgument, message);
                     return ObjectCreator<TResponse>.Empty;
                 }

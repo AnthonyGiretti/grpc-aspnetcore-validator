@@ -1,25 +1,22 @@
 using System.Threading.Tasks;
 using FluentValidation;
-using Grpc.AspNetCore.FluentValidation.Internal;
 using Grpc.AspNetCore.FluentValidation.SampleRpc;
 using Grpc.Core;
-using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace Grpc.AspNetCore.FluentValidation.Test
+namespace Grpc.AspNetCore.FluentValidation.Test.Integration
 {
-    public class IntegrationTest : IClassFixture<WebApplicationFactory<Startup>>
+    public class CustomValidatorIntegrationTest : IClassFixture<WebApplicationFactory<Startup>>
     {
-        public IntegrationTest(WebApplicationFactory<Startup> factory)
+        public CustomValidatorIntegrationTest(WebApplicationFactory<Startup> factory)
         {
             _factory = factory
                 .WithWebHostBuilder(builder => builder.ConfigureTestServices(services =>
                 {
                     services.AddValidator<HelloRequestValidator>();
-                    services.AddValidatorLocator();
+                    services.AddGrpcValidation();
                 }));
         }
 
@@ -56,13 +53,12 @@ namespace Grpc.AspNetCore.FluentValidation.Test
             var rpcException = await Assert.ThrowsAsync<RpcException>(Action);
             Assert.Equal(StatusCode.InvalidArgument, rpcException.Status.StatusCode);
         }
-    }
-
-    public class HelloRequestValidator : AbstractValidator<HelloRequest>
-    {
-        public HelloRequestValidator()
+        public class HelloRequestValidator : AbstractValidator<HelloRequest>
         {
-            RuleFor(request => request.Name).NotEmpty();
+            public HelloRequestValidator()
+            {
+                RuleFor(request => request.Name).NotEmpty();
+            }
         }
     }
 }
