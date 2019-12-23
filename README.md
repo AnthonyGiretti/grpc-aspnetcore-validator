@@ -114,7 +114,7 @@ public class Startup
 
 ## How to test my validation
 
-If you want to write integration test. [This test sample](src/Grpc.AspNetCore.FluentValidation.Test/IntegrationTest.cs) may help you.
+If you want to write integration tests. [This test sample](src/Grpc.AspNetCore.FluentValidation.Test/Integration/) may help you.
 
 
 ## Versioning
