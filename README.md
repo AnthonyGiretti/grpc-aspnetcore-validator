@@ -38,8 +38,7 @@ public class Startup
         services.AddValidator<HelloRequestValidator>();
         services.AddValidator<HelloRequestValidator>(LifeStyle.Singleton);
 
-        // 3. Add Validator locator, if you didn't satisfy container based locator,
-        // You just implement IValidatorLocator and register as service. 
+        // 3. Add Validator locator
         services.AddGrpcValidation();
     }
     // ...
@@ -68,8 +67,7 @@ public class Startup
         // 2. Add inline validators for messages, scope is always singleton
         services.AddInlineValidator<HelloRequest>(rules => rules.RuleFor(request => request.Name).NotEmpty());
 
-        // 3. Add Validator locator, if you didn't satisfy container based locator,
-        // You just implement IValidatorLocator and register as service. 
+        // 3. Add Validator locator
         services.AddGrpcValidation();
     }
     // ...
@@ -103,7 +101,7 @@ public class Startup
         // This should be placed before calling AddGrpcValidation();
         services.AddSingleton<IValidatorErrorMessageHanlder>(new CustomMessageHandler())
 
-        // If yor don't reigster any message handler, AddGrpcValidation register default message handler.  
+        // If you don't reigster any message handler, AddGrpcValidation register default message handler.  
         services.AddGrpcValidation();
     }
     // ...
