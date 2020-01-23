@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation.Results;
 
-namespace Grpc.AspNetCore.FluentValidation.Internal
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
 {
     internal class DefaultErrorMessageHandler : IValidatorErrorMessageHandler
     {

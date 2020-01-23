@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Grpc.AspNetCore.FluentValidation.SampleRpc";
+option csharp_namespace = "Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc";
 
 package Greet;
 

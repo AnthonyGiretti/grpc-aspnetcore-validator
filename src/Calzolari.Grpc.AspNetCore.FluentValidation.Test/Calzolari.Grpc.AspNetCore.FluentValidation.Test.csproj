@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Grpc.AspNetCore.FluentValidation.SampleRpc\Grpc.AspNetCore.FluentValidation.SampleRpc.csproj" />
+      <ProjectReference Include="..\Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc\Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc.csproj" />
     </ItemGroup>
 
 </Project>

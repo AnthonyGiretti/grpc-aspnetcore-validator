@@ -2,7 +2,7 @@ using System;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Grpc.AspNetCore.FluentValidation.Internal
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
 {
     internal class ServiceCollectionValidationProvider : IValidatorLocator
     {

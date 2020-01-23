@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using FluentValidation.Results;
 
-namespace Grpc.AspNetCore.FluentValidation
+namespace Calzolari.Grpc.AspNetCore.FluentValidation
 {
     public interface IValidatorErrorMessageHandler
     {

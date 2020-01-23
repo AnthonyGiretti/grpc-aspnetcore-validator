@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Grpc.AspNetCore.FluentValidation\Grpc.AspNetCore.FluentValidation.csproj" />
+      <ProjectReference Include="..\Calzolari.Grpc.AspNetCore.FluentValidation\Calzolari.Grpc.AspNetCore.FluentValidation.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,21 +1,24 @@
 using System.Threading.Tasks;
+using Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc;
 using FluentValidation;
-using Grpc.AspNetCore.FluentValidation.SampleRpc;
 using Grpc.Core;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Xunit;
 
-namespace Grpc.AspNetCore.FluentValidation.Test.Integration
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.Test.Integration
 {
-    public class CustomValidatorIntegrationTest : IClassFixture<WebApplicationFactory<Startup>>
+    public class InlineValidatorIntegrationTest : IClassFixture<WebApplicationFactory<Startup>>
     {
-        public CustomValidatorIntegrationTest(WebApplicationFactory<Startup> factory)
+        public InlineValidatorIntegrationTest(WebApplicationFactory<Startup> factory)
         {
             _factory = factory
                 .WithWebHostBuilder(builder => builder.ConfigureTestServices(services =>
                 {
-                    services.AddValidator<HelloRequestValidator>();
+                    services.AddInlineValidator<HelloRequest>(rules =>
+                    {
+                        rules.RuleFor(r => r.Name).NotEmpty();
+                    });
                     services.AddGrpcValidation();
                 }));
         }
@@ -37,7 +40,7 @@ namespace Grpc.AspNetCore.FluentValidation.Test.Integration
             // Then nothing happen.
         }
 
-        [Fact]
+        [Fact] 
         public async Task Should_ThrowInvalidArgument_When_NameOfMessageIsEmpty()
         {
             // Given
@@ -52,13 +55,6 @@ namespace Grpc.AspNetCore.FluentValidation.Test.Integration
             // Then
             var rpcException = await Assert.ThrowsAsync<RpcException>(Action);
             Assert.Equal(StatusCode.InvalidArgument, rpcException.Status.StatusCode);
-        }
-        public class HelloRequestValidator : AbstractValidator<HelloRequest>
-        {
-            public HelloRequestValidator()
-            {
-                RuleFor(request => request.Name).NotEmpty();
-            }
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace Grpc.AspNetCore.FluentValidation.Internal
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
 {
     internal static class GrpcProtocolConstants
     {

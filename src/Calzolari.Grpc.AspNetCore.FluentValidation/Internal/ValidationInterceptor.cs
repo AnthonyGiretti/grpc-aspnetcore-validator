@@ -1,9 +1,8 @@
-using System.Linq;
-using System.Threading.Tasks;
 using Grpc.Core;
 using Grpc.Core.Interceptors;
+using System.Threading.Tasks;
 
-namespace Grpc.AspNetCore.FluentValidation.Internal
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
 {
     internal class ValidationInterceptor : Interceptor
     {

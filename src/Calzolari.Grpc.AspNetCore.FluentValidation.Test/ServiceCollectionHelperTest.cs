@@ -1,9 +1,8 @@
 using FluentValidation;
-using Grpc.AspNetCore.FluentValidation.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace Grpc.AspNetCore.FluentValidation.Test
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.Test
 {
     public class ServiceCollectionHelperTest
     {

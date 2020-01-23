@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Grpc.AspNetCore.FluentValidation.SampleRpc
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc
 {
     public class Startup
     {

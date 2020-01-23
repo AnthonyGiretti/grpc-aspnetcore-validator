@@ -1,11 +1,11 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Grpc.AspNetCore.FluentValidation.SampleRpc;
+using Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace Grpc.AspNetCore.FluentValidation.Test
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.Test
 {
     public static class WebApplicationFactoryHelper
     {

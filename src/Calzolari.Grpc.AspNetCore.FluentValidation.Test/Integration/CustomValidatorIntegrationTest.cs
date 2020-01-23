@@ -1,35 +1,43 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc;
 using FluentValidation;
-using FluentValidation.Results;
-using Grpc.AspNetCore.FluentValidation.SampleRpc;
 using Grpc.Core;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace Grpc.AspNetCore.FluentValidation.Test.Integration
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.Test.Integration
 {
-    public class CustomMessageHandlerIntegrationTest : IClassFixture<WebApplicationFactory<Startup>>
+    public class CustomValidatorIntegrationTest : IClassFixture<WebApplicationFactory<Startup>>
     {
-        public CustomMessageHandlerIntegrationTest(WebApplicationFactory<Startup> factory)
+        public CustomValidatorIntegrationTest(WebApplicationFactory<Startup> factory)
         {
             _factory = factory
                 .WithWebHostBuilder(builder => builder.ConfigureTestServices(services =>
                 {
-                    services.AddInlineValidator<HelloRequest>(rules =>
-                    {
-                        rules.RuleFor(r => r.Name).NotEmpty();
-                    });
-                    services.AddSingleton<IValidatorErrorMessageHandler>(new CustomMessageHandler());
+                    services.AddValidator<HelloRequestValidator>();
                     services.AddGrpcValidation();
                 }));
         }
 
         private readonly WebApplicationFactory<Startup> _factory;
 
-        [Fact] 
+        [Fact]
+        public async Task Should_ResponseMessage_When_MessageIsValid()
+        {
+            // Given
+            var client = new Greeter.GreeterClient(_factory.CreateGrpcChannel());
+
+            // When
+            await client.SayHelloAsync(new HelloRequest
+            {
+                Name = "Not Empty Name"
+            });
+
+            // Then nothing happen.
+        }
+
+        [Fact]
         public async Task Should_ThrowInvalidArgument_When_NameOfMessageIsEmpty()
         {
             // Given
@@ -44,14 +52,12 @@ namespace Grpc.AspNetCore.FluentValidation.Test.Integration
             // Then
             var rpcException = await Assert.ThrowsAsync<RpcException>(Action);
             Assert.Equal(StatusCode.InvalidArgument, rpcException.Status.StatusCode);
-            Assert.Equal("Validation Error!", rpcException.Status.Detail);
         }
-
-        class CustomMessageHandler : IValidatorErrorMessageHandler
+        public class HelloRequestValidator : AbstractValidator<HelloRequest>
         {
-            public Task<string> HandleAsync(IList<ValidationFailure> failures)
+            public HelloRequestValidator()
             {
-                return Task.FromResult("Validation Error!");
+                RuleFor(request => request.Name).NotEmpty();
             }
         }
     }

@@ -1,7 +1,7 @@
-using Grpc.AspNetCore.FluentValidation.Internal;
+using Calzolari.Grpc.AspNetCore.FluentValidation.Internal;
 using Grpc.AspNetCore.Server;
 
-namespace Grpc.AspNetCore.FluentValidation
+namespace Calzolari.Grpc.AspNetCore.FluentValidation
 {
     public static class GrpcServiceOptionsHelper
     {

@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 
-namespace Grpc.AspNetCore.FluentValidation.SampleRpc
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc
 {
     public class GreeterService : Greeter.GreeterBase
     {

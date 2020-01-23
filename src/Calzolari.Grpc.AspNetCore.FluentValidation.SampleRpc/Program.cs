@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Grpc.AspNetCore.FluentValidation.SampleRpc
+namespace Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc
 {
     public class Program
     {
