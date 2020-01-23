@@ -111,13 +111,6 @@ public class Startup
 }
 ```
 
-## How to test my validation
+## How to test validation
 
 If you want to write integration tests. [This test sample](src/Grpc.AspNetCore.FluentValidation.Test/Integration/) may help you.
-
-
-## Versioning
-
-This pakage`s versioning is following version of [Grpc.AspNetCore](https://github.com/grpc/grpc-dotnet)
-
- 
