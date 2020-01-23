@@ -1,9 +1,6 @@
 # grpc-aspnetcore-validator
 Request message validator middleware for [Grpc.AspNetCore](https://github.com/grpc/grpc-dotnet)
 
-[![Nuget](https://img.shields.io/nuget/v/GrpcExtensions.AspNetCore.Validation)](https://www.nuget.org/packages/GrpcExtensions.AspNetCore.Validation)
-
-
 ## Feature
 
 - Support async validation
