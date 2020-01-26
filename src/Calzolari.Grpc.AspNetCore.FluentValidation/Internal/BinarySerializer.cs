@@ -8,10 +8,10 @@ namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
         public static byte[] ToBytes<T>(this T objectToSerialize)
         {
             var formatter = new BinaryFormatter();
-            var stream = new MemoryStream();
-            formatter.Serialize(stream, objectToSerialize);
+            var mStream = new MemoryStream();
+            formatter.Serialize(mStream, objectToSerialize);
 
-            return stream.ToArray();
+            return mStream.ToArray();
         }
     }
 }
