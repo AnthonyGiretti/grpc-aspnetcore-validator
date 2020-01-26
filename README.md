@@ -19,7 +19,7 @@ try
 
     using var channel = GrpcChannel.ForAddress("https://localhost:5001");
     var client =  new Greeter.GreeterClient(channel);
-     // Empty value that raises an error validation
+    // Empty value that raises an error validation
     var reply = await client.SayHelloAsync(new HelloRequest { Name = "" });
 }
 catch (RpcException e)
