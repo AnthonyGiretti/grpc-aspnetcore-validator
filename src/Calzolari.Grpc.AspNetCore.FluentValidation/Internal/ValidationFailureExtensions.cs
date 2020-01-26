@@ -12,7 +12,7 @@ namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
                 PropertyName = x.PropertyName,
                 AttemptedValue = x.AttemptedValue,
                 ErrorMessage = x.ErrorMessage
-            });
+            }).ToList();
         }
     }
 }
