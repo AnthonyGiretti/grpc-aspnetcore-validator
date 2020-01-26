@@ -7,11 +7,11 @@ namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
     {
         public static byte[] ToBytes<T>(this T objectToSerialize)
         {
-            var binFormatter = new BinaryFormatter();
-            var mStream = new MemoryStream();
-            binFormatter.Serialize(mStream, objectToSerialize);
+            var formatter = new BinaryFormatter();
+            var stream = new MemoryStream();
+            formatter.Serialize(stream, objectToSerialize);
 
-            return mStream.ToArray();
+            return stream.ToArray();
         }
     }
 }

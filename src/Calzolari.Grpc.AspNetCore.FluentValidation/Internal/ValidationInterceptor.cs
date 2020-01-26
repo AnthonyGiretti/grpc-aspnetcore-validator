@@ -30,14 +30,10 @@ namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
                 {
                     var message = await _handler.HandleAsync(results.Errors);
                     results.Errors.Add(new ValidationFailure("field", "value"));
-                    results.Errors.ToList().ForEach(error =>
-                    {
-                        context.ResponseTrailers.Add(new Metadata.Entry("ValidationErrors", error.ErrorMessage + " atemptedValue " + error.AttemptedValue));
-                    });
+                    context.ResponseTrailers.AddValidationErrors(results.Errors);
                     throw new RpcException(new Status(StatusCode.InvalidArgument, message));
                 }
             }
-
             return await continuation(request, context);
         }
     }
