@@ -9,6 +9,7 @@ namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
         {
             var formatter = new BinaryFormatter();
             var mStream = new MemoryStream();
+
             formatter.Serialize(mStream, objectToSerialize);
 
             return mStream.ToArray();

@@ -7,12 +7,14 @@ namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
 {
     internal static class MetadataExtensions
     {
-        public static void AddValidationErrors(this Metadata metadata, IList<ValidationFailure> failures)
+        public static Metadata ToValidationMetadata(this IList<ValidationFailure> failures)
         {
+            var metadata = new Metadata();
             if (failures.Any())
             {
-                metadata.Add(new Metadata.Entry("grpc-validation-errors-bin", failures.ToValidationTrailers().ToBytes()));
+                metadata.Add(new Metadata.Entry("validation-errors-bin", failures.ToValidationTrailers().ToBytes()));
             }
+            return metadata;
         }
     }
 }

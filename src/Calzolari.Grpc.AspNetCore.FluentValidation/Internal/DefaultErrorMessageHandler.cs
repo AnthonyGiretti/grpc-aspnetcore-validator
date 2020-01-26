@@ -10,7 +10,7 @@ namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
         public Task<string> HandleAsync(IList<ValidationFailure> failures)
         {
             var errors = failures
-                .Select(f => $"Property {f.PropertyName} failed validation. Error was {f.ErrorMessage}")
+                .Select(f => $"Property {f.PropertyName} failed validation.")
                 .ToList();
 
             return Task.FromResult(string.Join("\n", errors));

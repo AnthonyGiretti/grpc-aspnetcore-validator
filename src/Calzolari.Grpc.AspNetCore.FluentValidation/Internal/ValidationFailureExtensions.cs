@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using Calzolari.Grpc.Domain;
+using FluentValidation.Results;
 using System.Collections.Generic;
 using System.Linq;
 

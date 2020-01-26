@@ -29,9 +29,8 @@ namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
                 if (!results.IsValid && results.Errors.Any())
                 {
                     var message = await _handler.HandleAsync(results.Errors);
-                    results.Errors.Add(new ValidationFailure("field", "value"));
-                    context.ResponseTrailers.AddValidationErrors(results.Errors);
-                    throw new RpcException(new Status(StatusCode.InvalidArgument, message));
+                    var validationMetadata = results.Errors.ToValidationMetadata();
+                    throw new RpcException(new Status(StatusCode.InvalidArgument, message), validationMetadata);
                 }
             }
             return await continuation(request, context);

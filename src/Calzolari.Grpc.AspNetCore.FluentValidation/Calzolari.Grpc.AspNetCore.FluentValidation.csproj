@@ -27,4 +27,8 @@
       <PackageReference Include="Grpc.AspNetCore" Version="2.25.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

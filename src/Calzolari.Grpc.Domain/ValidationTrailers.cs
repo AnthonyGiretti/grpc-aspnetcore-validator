@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
+namespace Calzolari.Grpc.Domain
 {
     [Serializable]
-    internal class ValidationTrailers
+    public class ValidationTrailers
     {
         public string PropertyName { get; set; }
 
