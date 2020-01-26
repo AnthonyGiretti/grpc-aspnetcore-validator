@@ -1,6 +1,9 @@
 # grpc-aspnetcore-validator
 Request message validator middleware for [Grpc.AspNetCore](https://github.com/grpc/grpc-dotnet)
 
+![](https://github.com/AnthonyGiretti/grpc-aspnetcore-validator/workflows/Build/badge.svg)
+[![Nuget](https://img.shields.io/nuget/v/Calzolari.Grpc.AspNetCore.Validation)](https://www.nuget.org/packages/Calzolari.Grpc.AspNetCore.Validation)
+
 ## Feature
 
 - Support async validation
@@ -35,8 +38,7 @@ public class Startup
         services.AddValidator<HelloRequestValidator>();
         services.AddValidator<HelloRequestValidator>(LifeStyle.Singleton);
 
-        // 3. Add Validator locator, if you didn't satisfy container based locator,
-        // You just implement IValidatorLocator and register as service. 
+        // 3. Add Validator locator
         services.AddGrpcValidation();
     }
     // ...
@@ -65,8 +67,7 @@ public class Startup
         // 2. Add inline validators for messages, scope is always singleton
         services.AddInlineValidator<HelloRequest>(rules => rules.RuleFor(request => request.Name).NotEmpty());
 
-        // 3. Add Validator locator, if you didn't satisfy container based locator,
-        // You just implement IValidatorLocator and register as service. 
+        // 3. Add Validator locator
         services.AddGrpcValidation();
     }
     // ...
@@ -100,20 +101,13 @@ public class Startup
         // This should be placed before calling AddGrpcValidation();
         services.AddSingleton<IValidatorErrorMessageHanlder>(new CustomMessageHandler())
 
-        // If yor don't reigster any message handler, AddGrpcValidation register default message handler.  
+        // If you don't reigster any message handler, AddGrpcValidation register default message handler.  
         services.AddGrpcValidation();
     }
     // ...
 }
 ```
 
-## How to test my validation
+## How to test validation
 
 If you want to write integration tests. [This test sample](src/Grpc.AspNetCore.FluentValidation.Test/Integration/) may help you.
-
-
-## Versioning
-
-This pakage`s versioning is following version of [Grpc.AspNetCore](https://github.com/grpc/grpc-dotnet)
-
- 
