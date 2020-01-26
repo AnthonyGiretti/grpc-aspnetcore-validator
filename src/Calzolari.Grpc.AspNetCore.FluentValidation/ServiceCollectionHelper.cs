@@ -1,8 +1,8 @@
+using Calzolari.Grpc.AspNetCore.FluentValidation.Internal;
+using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
-using FluentValidation;
-using Calzolari.Grpc.AspNetCore.FluentValidation.Internal;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Calzolari.Grpc.AspNetCore.FluentValidation
 {

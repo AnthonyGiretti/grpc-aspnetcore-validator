@@ -1,9 +1,9 @@
-using System.Threading.Tasks;
 using Calzolari.Grpc.AspNetCore.FluentValidation.SampleRpc;
 using FluentValidation;
 using Grpc.Core;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Calzolari.Grpc.AspNetCore.FluentValidation.Test.Integration

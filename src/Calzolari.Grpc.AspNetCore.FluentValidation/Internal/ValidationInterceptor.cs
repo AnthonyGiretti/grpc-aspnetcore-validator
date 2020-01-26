@@ -1,5 +1,7 @@
+using FluentValidation.Results;
 using Grpc.Core;
 using Grpc.Core.Interceptors;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
@@ -24,12 +26,15 @@ namespace Calzolari.Grpc.AspNetCore.FluentValidation.Internal
             {
                 var results = await validator.ValidateAsync(request);
 
-                if (!results.IsValid)
+                if (!results.IsValid && results.Errors.Any())
                 {
                     var message = await _handler.HandleAsync(results.Errors);
-                    context.Status = new Status(StatusCode.InvalidArgument, message);
-                    context.GetHttpContext().Response.Headers[GrpcProtocolConstants.StatusTrailerName] = GrpcProtocolConstants.StatusTrailerInvalidArgument;
-                    return ObjectCreator<TResponse>.Empty;
+                    results.Errors.Add(new ValidationFailure("field", "value"));
+                    results.Errors.ToList().ForEach(error =>
+                    {
+                        context.ResponseTrailers.Add(new Metadata.Entry("ValidationErrors", error.ErrorMessage + " atemptedValue " + error.AttemptedValue));
+                    });
+                    throw new RpcException(new Status(StatusCode.InvalidArgument, message));
                 }
             }
 
