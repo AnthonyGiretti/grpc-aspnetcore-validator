@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>3.1.0</Version>
+    <Version>3.1.1</Version>
     <Authors>Anthony Giretti</Authors>
     <Company>Calzolari</Company>
     <Product>Calzolari.Grpc.Net.Client.Validation</Product>
@@ -11,6 +11,9 @@
     <PackageProjectUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</PackageProjectUrl>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
     <PackageTags>grpc;dotnet;validator;validation;request-validation;</PackageTags>
+    <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
+    <PackageIcon>calzolari.png</PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\calzolari.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\..\license.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
