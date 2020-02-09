@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{A041C68C-F36B-4DCE-A8BA-0442A8121F62}"
 	ProjectSection(SolutionItems) = preProject
+		..\calzolari.png = ..\calzolari.png
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
@@ -14,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calzolari.Grpc.AspNetCore.V
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calzolari.Grpc.AspNetCore.Validation", "Calzolari.Grpc.AspNetCore.Validation\Calzolari.Grpc.AspNetCore.Validation.csproj", "{C61FFB41-CB51-477F-BED2-BDCDA3105038}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calzolari.Grpc.Domain", "Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj", "{BF4144B8-1DD1-432A-A0B6-5C3BC3C7DB67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calzolari.Grpc.Domain", "Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj", "{BF4144B8-1DD1-432A-A0B6-5C3BC3C7DB67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calzolari.Grpc.Net.Client.Validation", "Calzolari.Grpc.Net.Client.Validation\Calzolari.Grpc.Net.Client.Validation.csproj", "{E7963BF5-5687-47BE-A8EF-687C48680354}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calzolari.Grpc.Net.Client.Validation", "Calzolari.Grpc.Net.Client.Validation\Calzolari.Grpc.Net.Client.Validation.csproj", "{E7963BF5-5687-47BE-A8EF-687C48680354}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
