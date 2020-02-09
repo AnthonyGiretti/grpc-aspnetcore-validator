@@ -4,12 +4,33 @@ Request message validator middleware for [Grpc.AspNetCore](https://github.com/gr
 ![](https://github.com/AnthonyGiretti/grpc-aspnetcore-validator/workflows/Build/badge.svg)
 [![Nuget](https://img.shields.io/nuget/v/Calzolari.Grpc.AspNetCore.Validation)](https://www.nuget.org/packages/Calzolari.Grpc.AspNetCore.Validation)
 
-## Feature
+## Features
 
-- Support async validation
-- Support IoC LifeStyle scopes and dependency injection
+- Server Side validation
+- Client Side detailed errors fetching in RpcException
 
-## How to use.
+### Client Side usage
+
+Download the client side package here: [Calzolari.Grpc.Net.Client.Validation](https://www.nuget.org/packages/Calzolari.Grpc.Net.Client.Validation/)
+
+```csharp
+try
+{
+
+    using var channel = GrpcChannel.ForAddress("https://localhost:5001");
+    var client =  new Greeter.GreeterClient(channel);
+    // Empty value that raises an error validation
+    var reply = await client.SayHelloAsync(new HelloRequest { Name = "" });
+}
+catch (RpcException e)
+{
+    var errors = e.GetValidationErrors(); // Gets validation errors list
+}
+```
+
+### Server Side usage
+
+Download the server side package here: [Calzolari.Grpc.AspNetCore.Validation](https://www.nuget.org/packages/Calzolari.Grpc.AspNetCore.Validation/)
 
 This package is integrated with [Fluent Validation](https://github.com/JeremySkinner/FluentValidation). 
 If you want to know how build your own validation rules, please checkout [Fluent Validation Docs](https://fluentvalidation.net/start)
@@ -34,7 +55,7 @@ public class Startup
         // 1. Enable message validation feature.
         services.AddGrpc(options => options.EnableMessageValidation());
 
-        // 2. Add custom validators for messages, default scope is scope.
+        // 2. Add custom validators for messages, default scope is scoped.
         services.AddValidator<HelloRequestValidator>();
         services.AddValidator<HelloRequestValidator>(LifeStyle.Singleton);
 
@@ -74,7 +95,6 @@ public class Startup
 }
 ```
 
-
 #### Customize validation failure message.
 
 If you want to custom validation message handler for using your own error message system,
@@ -97,7 +117,7 @@ public class Startup
         services.AddGrpc(options => options.EnableMessageValidation());
         services.AddInlineValidator<HelloRequest>(rules => rules.RuleFor(request => request.Name).NotEmpty());
 
-        // 1. Just put at service collection your own custom message handler that implement IValidatorErrorMessageHnadler.
+        // 1. Just put at service collection your own custom message handler that implement IValidatorErrorMessageHandler.
         // This should be placed before calling AddGrpcValidation();
         services.AddSingleton<IValidatorErrorMessageHanlder>(new CustomMessageHandler())
 
