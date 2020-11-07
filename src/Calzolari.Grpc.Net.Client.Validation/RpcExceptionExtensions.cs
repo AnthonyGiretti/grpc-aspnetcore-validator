@@ -9,11 +9,11 @@ namespace Calzolari.Grpc.Net.Client.Validation
     {
         public static IEnumerable<ValidationTrailers> GetValidationErrors(this RpcException exception)
         {
-            var validationTrailer = exception.Trailers.FirstOrDefault(x => x.Key == "validation-errors-bin");
+            var validationTrailer = exception.Trailers.FirstOrDefault(x => x.Key == "validation-errors-text");
 
             if (validationTrailer != null)
             {
-                return validationTrailer.ValueBytes.FromBytes<IEnumerable<ValidationTrailers>>();
+                return validationTrailer.Value.FromBase64<IEnumerable<ValidationTrailers>>();
             }
             return null;
         }

@@ -11,7 +11,7 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
         {
             return failures.Select(x => new ValidationTrailers {
                 PropertyName = x.PropertyName,
-                AttemptedValue = x.AttemptedValue,
+                AttemptedValue = x.AttemptedValue.ToString(),
                 ErrorMessage = x.ErrorMessage
             }).ToList();
         }
