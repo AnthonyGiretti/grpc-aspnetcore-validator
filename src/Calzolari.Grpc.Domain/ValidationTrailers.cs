@@ -9,6 +9,6 @@ namespace Calzolari.Grpc.Domain
 
         public string ErrorMessage { get; set; }
 
-        public object AttemptedValue { get; set; }
+        public string AttemptedValue { get; set; }
     }
 }

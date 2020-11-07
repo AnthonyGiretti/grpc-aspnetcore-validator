@@ -2,16 +2,16 @@
 
     <PropertyGroup>
         <PackageId>Calzolari.Grpc.AspNetCore.Validation</PackageId>
-        <Version>3.1.2</Version>
+        <Version>5.0.0-rc</Version>
         <Authors>Anthony Giretti</Authors>
         <PackageTags>grpc;dotnet;validator;validation;request-validation;aspnetcore</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageProjectUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</PackageProjectUrl>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
         <DocumentationFile>bin\Debug\Calzolari.Grpc.AspNetCore.Validation.xml</DocumentationFile>
         <Company>Calzolari</Company>
         <Product>Calzolari.Grpc.AspNetCore.Validation</Product>
-        <AssemblyVersion>3.1.2.0</AssemblyVersion>
+        <AssemblyVersion>5.0.0.0</AssemblyVersion>
         <PackageLicenseFile>license.txt</PackageLicenseFile>
         <Description>Request message validator for Grpc.AspNetCore</Description>
         <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
@@ -28,8 +28,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation" Version="8.5.1" />
-      <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+      <Compile Remove="Internal\BinarySerializer.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation" Version="8.6.2" />
+      <PackageReference Include="Grpc.AspNetCore" Version="2.33.1" />
+      <PackageReference Include="System.Text.Json" Version="5.0.0-rc.2.20475.5" />
     </ItemGroup>
 
     <ItemGroup>

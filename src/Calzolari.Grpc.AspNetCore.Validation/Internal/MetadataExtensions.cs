@@ -12,7 +12,7 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
             var metadata = new Metadata();
             if (failures.Any())
             {
-                metadata.Add(new Metadata.Entry("validation-errors-bin", failures.ToValidationTrailers().ToBytes()));
+                metadata.Add(new Metadata.Entry("validation-errors-text", failures.ToValidationTrailers().ToBase64()));
             }
             return metadata;
         }

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+	  <TargetFramework>net5.0</TargetFramework>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
     <Authors>Anthony Giretti</Authors>
     <Company>Calzolari</Company>
@@ -10,8 +10,8 @@
     <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
     <PackageProjectUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.1</Version>
-    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <Version>5.0.0-rc</Version>
+    <AssemblyVersion>5.0.0.0</AssemblyVersion>
     <PackageIcon>calzolari.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
