@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>Calzolari.Grpc.AspNetCore.Validation</PackageId>
-        <Version>5.0.0-rc</Version>
+        <Version>5.0.0</Version>
         <Authors>Anthony Giretti</Authors>
         <PackageTags>grpc;dotnet;validator;validation;request-validation;aspnetcore</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -32,9 +32,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation" Version="8.6.2" />
+      <PackageReference Include="FluentValidation" Version="9.3.0" />
       <PackageReference Include="Grpc.AspNetCore" Version="2.33.1" />
-      <PackageReference Include="System.Text.Json" Version="5.0.0-rc.2.20475.5" />
+      <PackageReference Include="System.Text.Json" Version="5.0.0" />
     </ItemGroup>
 
     <ItemGroup>
