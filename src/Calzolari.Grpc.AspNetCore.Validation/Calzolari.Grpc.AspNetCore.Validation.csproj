@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>Calzolari.Grpc.AspNetCore.Validation</PackageId>
-        <Version>5.0.1</Version>
+        <Version>5.0.2</Version>
         <Authors>Anthony Giretti</Authors>
         <PackageTags>grpc;dotnet;validator;validation;request-validation;aspnetcore</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -11,7 +11,7 @@
         <DocumentationFile>bin\Debug\Calzolari.Grpc.AspNetCore.Validation.xml</DocumentationFile>
         <Company>Calzolari</Company>
         <Product>Calzolari.Grpc.AspNetCore.Validation</Product>
-        <AssemblyVersion>5.0.1.0</AssemblyVersion>
+        <AssemblyVersion>5.0.2.0</AssemblyVersion>
         <PackageLicenseFile>license.txt</PackageLicenseFile>
         <Description>Request message validator for Grpc.AspNetCore</Description>
         <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
