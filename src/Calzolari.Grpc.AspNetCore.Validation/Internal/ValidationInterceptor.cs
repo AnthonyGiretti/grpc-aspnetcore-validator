@@ -21,6 +21,22 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
             ServerCallContext context,
             UnaryServerMethod<TRequest, TResponse> continuation)
         {
+            await ValidateRequest(request);
+            return await continuation(request, context);
+        }
+
+        public override async Task ServerStreamingServerHandler<TRequest, TResponse>(
+            TRequest request, 
+            IServerStreamWriter<TResponse> responseStream,
+            ServerCallContext context, 
+            ServerStreamingServerMethod<TRequest, TResponse> continuation)
+        {
+            await ValidateRequest(request);
+            await continuation(request, responseStream, context);
+        }
+
+        private async Task ValidateRequest<TRequest>(TRequest request) where TRequest : class
+        {
             if (_locator.TryGetValidator<TRequest>(out var validator))
             {
                 var results = await validator.ValidateAsync(request);
@@ -32,7 +48,6 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
                     throw new RpcException(new Status(StatusCode.InvalidArgument, message), validationMetadata);
                 }
             }
-            return await continuation(request, context);
         }
     }
 }

@@ -20,5 +20,13 @@ namespace Calzolari.Grpc.AspNetCore.Validation.SampleRpc
                 Message = "Hello " + request.Name
             });
         }
+
+        public override async Task SayHelloServerStreaming(HelloRequest request, IServerStreamWriter<HelloReply> responseStream, ServerCallContext context)
+        {
+            await responseStream.WriteAsync(new HelloReply
+            {
+                Message = "Hello " + request.Name
+            });
+        }
     }
 }
