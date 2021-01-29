@@ -37,12 +37,8 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
                                                                                      ServerCallContext context, 
                                                                                      ClientStreamingServerMethod<TRequest, TResponse> continuation)
         {
-            await foreach (var message in requestStream.ReadAllAsync())
-            {
-                await ValidateRequest(message);
-            }
-
-            return await continuation(requestStream, context);
+            var validatingRequestStream = new ValidatingAsyncStreamReader<TRequest>(requestStream, request => ValidateRequest(request));
+            return await continuation(validatingRequestStream, context);
         }
 
         public override async Task DuplexStreamingServerHandler<TRequest, TResponse>(IAsyncStreamReader<TRequest> requestStream, 
@@ -50,12 +46,8 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
                                                                                      ServerCallContext context, 
                                                                                      DuplexStreamingServerMethod<TRequest, TResponse> continuation)
         {
-            await foreach (var message in requestStream.ReadAllAsync())
-            {
-                await ValidateRequest(message);
-            }
-
-            await continuation(requestStream, responseStream, context);
+            var validatingRequestStream = new ValidatingAsyncStreamReader<TRequest>(requestStream, request => ValidateRequest(request));
+            await continuation(validatingRequestStream, responseStream, context);
         }
 
         private async Task ValidateRequest<TRequest>(TRequest request) where TRequest : class

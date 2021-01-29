@@ -1,3 +1,4 @@
+using System;
 using Calzolari.Grpc.AspNetCore.Validation.SampleRpc;
 using FluentValidation;
 using FluentValidation.Results;
@@ -66,6 +67,118 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Test.Integration
             var rpcException = await Assert.ThrowsAsync<RpcException>(Action);
             Assert.Equal(StatusCode.InvalidArgument, rpcException.Status.StatusCode);
             Assert.Equal("Validation Error!", rpcException.Status.Detail);
+        }
+
+        [Fact]
+        public async Task Should_ThrowInvalidArgument_When_NameOfMessageIsEmpty_ForClientStreaming()
+        {
+            // Given
+            var client = new Greeter.GreeterClient(_factory.CreateGrpcChannel());
+
+            // When
+            async Task Action()
+            {
+                using var request = client.SayHelloClientStreaming();
+
+                await request.RequestStream.WriteAsync(new HelloRequest {Name = "Alice"});
+                await request.RequestStream.WriteAsync(new HelloRequest {Name = "Bob"});
+                await request.RequestStream.WriteAsync(new HelloRequest {Name = string.Empty});
+                await request.RequestStream.CompleteAsync();
+
+                var result = await request;
+            }
+
+            // Then
+            var rpcException = await Assert.ThrowsAsync<RpcException>(Action);
+            Assert.Equal(StatusCode.InvalidArgument, rpcException.Status.StatusCode);
+            Assert.Equal("Validation Error!", rpcException.Status.Detail);
+        }
+
+        [Fact]
+        public async Task Should_NotThrow_When_Valid_ForClientStreaming()
+        {
+            // Given
+            var client = new Greeter.GreeterClient(_factory.CreateGrpcChannel());
+
+            // When
+            async Task<HelloReply> Action()
+            {
+                using var request = client.SayHelloClientStreaming();
+
+                await request.RequestStream.WriteAsync(new HelloRequest { Name = "Alice" });
+                await request.RequestStream.WriteAsync(new HelloRequest { Name = "Bob" });
+                await request.RequestStream.WriteAsync(new HelloRequest { Name = "Charlie" });
+                await request.RequestStream.CompleteAsync();
+
+                return await request;
+            }
+
+            // Then
+            var reply = await Action();
+            Assert.Equal("Hello Alice, Bob, Charlie", reply.Message);
+        }
+
+        [Fact]
+        public async Task Should_ThrowInvalidArgument_When_NameOfMessageIsEmpty_ForDuplexStreaming()
+        {
+            // Given
+            var client = new Greeter.GreeterClient(_factory.CreateGrpcChannel());
+
+            // When
+            async Task Action()
+            {
+                using var request = client.SayHelloDuplexStreaming();
+
+                await request.RequestStream.WriteAsync(new HelloRequest { Name = "Alice" });
+                await request.RequestStream.WriteAsync(new HelloRequest { Name = "Bob" });
+                await request.RequestStream.WriteAsync(new HelloRequest { Name = string.Empty });
+                await request.RequestStream.CompleteAsync();
+
+                await foreach (var response in request.ResponseStream.ReadAllAsync())
+                {
+                }
+            }
+
+            // Then
+            var rpcException = await Assert.ThrowsAsync<RpcException>(Action);
+            Assert.Equal(StatusCode.InvalidArgument, rpcException.Status.StatusCode);
+            Assert.Equal("Validation Error!", rpcException.Status.Detail);
+        }
+
+        [Fact]
+        public async Task Should_NotThrow_When_Valid_ForDuplexStreaming()
+        {
+            // Given
+            var client = new Greeter.GreeterClient(_factory.CreateGrpcChannel());
+            var names = new[] {"Alice", "Bob", "Charlie"};
+
+            // When
+            async Task<IList<string>> Action()
+            {
+                using var request = client.SayHelloDuplexStreaming();
+
+                foreach (var name in names)
+                {
+                    await request.RequestStream.WriteAsync(new HelloRequest { Name = name });
+                }
+                await request.RequestStream.CompleteAsync();
+
+                var messages = new List<string>();
+                await foreach (var response in request.ResponseStream.ReadAllAsync())
+                {
+                    messages.Add(response.Message);
+                }
+
+                return messages;
+            }
+
+            // Then
+            var messages = await Action();
+            Assert.Collection(messages,
+                m => Assert.Equal("Hello Alice", m),
+                m => Assert.Equal("Hello Bob", m),
+                m => Assert.Equal("Hello Charlie", m)
+            );
         }
 
         class CustomMessageHandler : IValidatorErrorMessageHandler
