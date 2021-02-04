@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calzolari.Grpc.AspNetCore.V
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calzolari.Grpc.AspNetCore.Validation", "Calzolari.Grpc.AspNetCore.Validation\Calzolari.Grpc.AspNetCore.Validation.csproj", "{C61FFB41-CB51-477F-BED2-BDCDA3105038}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calzolari.Grpc.Domain", "Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj", "{BF4144B8-1DD1-432A-A0B6-5C3BC3C7DB67}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calzolari.Grpc.Net.Client.Validation", "Calzolari.Grpc.Net.Client.Validation\Calzolari.Grpc.Net.Client.Validation.csproj", "{E7963BF5-5687-47BE-A8EF-687C48680354}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calzolari.Grpc.Domain", "Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj", "{BD66C9CB-B1D3-4A13-80AD-F6A4A7D7AAAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +37,14 @@ Global
 		{C61FFB41-CB51-477F-BED2-BDCDA3105038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C61FFB41-CB51-477F-BED2-BDCDA3105038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C61FFB41-CB51-477F-BED2-BDCDA3105038}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF4144B8-1DD1-432A-A0B6-5C3BC3C7DB67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF4144B8-1DD1-432A-A0B6-5C3BC3C7DB67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF4144B8-1DD1-432A-A0B6-5C3BC3C7DB67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF4144B8-1DD1-432A-A0B6-5C3BC3C7DB67}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7963BF5-5687-47BE-A8EF-687C48680354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E7963BF5-5687-47BE-A8EF-687C48680354}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7963BF5-5687-47BE-A8EF-687C48680354}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7963BF5-5687-47BE-A8EF-687C48680354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD66C9CB-B1D3-4A13-80AD-F6A4A7D7AAAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD66C9CB-B1D3-4A13-80AD-F6A4A7D7AAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD66C9CB-B1D3-4A13-80AD-F6A4A7D7AAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD66C9CB-B1D3-4A13-80AD-F6A4A7D7AAAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

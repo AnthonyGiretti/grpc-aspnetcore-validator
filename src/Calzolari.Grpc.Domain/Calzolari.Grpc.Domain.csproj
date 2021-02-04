@@ -12,7 +12,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>5.0.1</Version>
     <AssemblyVersion>5.0.1.0</AssemblyVersion>
-    <PackageIcon>calzolari.png</PackageIcon>
+<PackageIcon>calzolari.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
 

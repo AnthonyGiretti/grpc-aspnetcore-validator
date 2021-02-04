@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>Calzolari.Grpc.AspNetCore.Validation</PackageId>
-        <Version>5.1.0</Version>
+        <Version>5.2.0</Version>
         <Authors>Anthony Giretti</Authors>
         <PackageTags>grpc;dotnet;validator;validation;request-validation;aspnetcore</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -11,7 +11,7 @@
         <DocumentationFile>bin\Debug\Calzolari.Grpc.AspNetCore.Validation.xml</DocumentationFile>
         <Company>Calzolari</Company>
         <Product>Calzolari.Grpc.AspNetCore.Validation</Product>
-        <AssemblyVersion>5.1.0.0</AssemblyVersion>
+        <AssemblyVersion>5.2.0.0</AssemblyVersion>
         <PackageLicenseFile>license.txt</PackageLicenseFile>
         <Description>Request message validator for Grpc.AspNetCore</Description>
         <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
@@ -32,13 +32,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation" Version="9.3.0" />
-      <PackageReference Include="Grpc.AspNetCore" Version="2.33.1" />
-      <PackageReference Include="System.Text.Json" Version="5.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj" />
+      <PackageReference Include="FluentValidation" Version="9.5.0" />
+      <PackageReference Include="Grpc.AspNetCore" Version="2.35.0" />
+      <PackageReference Include="System.Text.Json" Version="5.0.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -50,6 +46,10 @@
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj" />
     </ItemGroup>
 
 </Project>

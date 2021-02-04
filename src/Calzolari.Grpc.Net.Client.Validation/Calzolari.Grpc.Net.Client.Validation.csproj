@@ -3,7 +3,7 @@
   <PropertyGroup>
 	  <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>5.0.1</Version>
+    <Version>5.1.0</Version>
     <Authors>Anthony Giretti</Authors>
     <Company>Calzolari</Company>
     <Product>Calzolari.Grpc.Net.Client.Validation</Product>
@@ -21,12 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.Core" Version="2.33.1" />
-    <PackageReference Include="System.Text.Json" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj" />
+    <PackageReference Include="Grpc.Core" Version="2.35.0" />
+    <PackageReference Include="System.Text.Json" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +34,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj" />
   </ItemGroup>
 
 </Project>
