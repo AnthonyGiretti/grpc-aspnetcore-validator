@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
     <PackageProjectUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>5.0.1</Version>
+    <Version>5.1.0</Version>
     <AssemblyVersion>5.0.1.0</AssemblyVersion>
 <PackageIcon>calzolari.png</PackageIcon>
     <PackageIconUrl />
