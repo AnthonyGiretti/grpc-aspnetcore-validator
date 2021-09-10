@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>Calzolari.Grpc.AspNetCore.Validation</PackageId>
-        <Version>3.4.0</Version>
+        <Version>3.5.0</Version>
         <Authors>Anthony Giretti</Authors>
         <PackageTags>grpc;dotnet;validator;validation;request-validation;aspnetcore</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -11,7 +11,7 @@
         <DocumentationFile>bin\Debug\Calzolari.Grpc.AspNetCore.Validation.xml</DocumentationFile>
         <Company>Calzolari</Company>
         <Product>Calzolari.Grpc.AspNetCore.Validation</Product>
-        <AssemblyVersion>3.4.0.0</AssemblyVersion>
+        <AssemblyVersion>3.5.0.0</AssemblyVersion>
         <PackageLicenseFile>license.txt</PackageLicenseFile>
         <Description>Request message validator for Grpc.AspNetCore</Description>
         <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
@@ -32,8 +32,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation" Version="9.2.2" />
-      <PackageReference Include="Grpc.AspNetCore" Version="2.33.1" />
+      <PackageReference Include="FluentValidation" Version="10.3.3" />
+      <PackageReference Include="Grpc.AspNetCore" Version="2.39.0" />
     </ItemGroup>
 
     <ItemGroup>
