@@ -29,6 +29,11 @@ catch (RpcException e)
 }
 ```
 
+If you are using Blazor, don't forget to setup CORS rules with the following headers:
+
+```csharp
+.WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding", "validation-errors-text");
+
 ### Server Side usage
 
 Download the server side package here: [Calzolari.Grpc.AspNetCore.Validation](https://www.nuget.org/packages/Calzolari.Grpc.AspNetCore.Validation/)
@@ -47,6 +52,7 @@ public class HelloRequestValidator : AbstractValidator<HelloRequest>
         RuleFor(request => request.Name).NotEmpty();
     }
 }
+```
 
 public class Startup
 {
