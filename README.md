@@ -33,6 +33,7 @@ If you are using Blazor, don't forget to setup CORS rules with the following hea
 
 ```csharp
 .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding", "validation-errors-text");
+```
 
 ### Server Side usage
 
