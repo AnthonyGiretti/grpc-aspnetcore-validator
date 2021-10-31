@@ -29,7 +29,7 @@ catch (RpcException e)
 }
 ```
 
-If you are using Blazor, don't forget to setup CORS rules with the following headers:
+If you are using Blazor WebAssembly client-side, don't forget to setup CORS rules with the following headers server-side:
 
 ```csharp
 .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding", "validation-errors-text");
