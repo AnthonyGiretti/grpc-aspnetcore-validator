@@ -55,7 +55,7 @@ public class HelloRequestValidator : AbstractValidator<HelloRequest>
 }
 ```
 
-```
+```csharp
 public class Startup
 {
     // ...
