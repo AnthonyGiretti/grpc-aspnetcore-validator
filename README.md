@@ -29,7 +29,7 @@ catch (RpcException e)
 }
 ```
 
-If you are using Blazor WebAssembly client-side, don't forget to setup CORS rules with the following headers server-side:
+If you are using Blazor WebAssembly client-side (or any JavaScript client), don't forget to setup gRPC-web on the server and CORS rules with the following headers server-side:
 
 ```csharp
 .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding", "validation-errors-text");
@@ -55,6 +55,7 @@ public class HelloRequestValidator : AbstractValidator<HelloRequest>
 }
 ```
 
+```
 public class Startup
 {
     // ...
