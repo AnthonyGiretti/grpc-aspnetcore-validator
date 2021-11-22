@@ -23,7 +23,7 @@ try
     // Empty value that raises an error validation
     var reply = await client.SayHelloAsync(new HelloRequest { Name = "" });
 }
-catch (RpcException e)
+catch (RpcException e) when (ex.StatusCode == StatusCode.InvalidArgument)
 {
     var errors = e.GetValidationErrors(); // Gets validation errors list
 }
