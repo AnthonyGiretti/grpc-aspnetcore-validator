@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "Calzolari.Grpc.AspNetCore.Validation.SampleRpc";
+
+package Check;
+
+// The hello service definition.
+service DataDuplicationChecker {
+  // Sends a greeting
+  rpc Check (CheckRequest) returns (CheckReply);
+}
+
+// The request message containing the user's name.
+message CheckRequest {
+  string user_name = 1;
+  string email = 2;
+}
+
+// The response message containing the greetings.
+message CheckReply {
+  string message = 1;
+}

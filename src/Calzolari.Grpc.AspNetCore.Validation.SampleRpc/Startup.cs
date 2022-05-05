@@ -25,6 +25,7 @@ namespace Calzolari.Grpc.AspNetCore.Validation.SampleRpc
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<GreeterService>();
+                endpoints.MapGrpcService<DataDuplicationCheckerService>();
 
                 endpoints.MapGet("/",
                     async context =>

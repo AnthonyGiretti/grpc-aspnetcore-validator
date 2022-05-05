@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Protobuf Include="Protos\duplicate_check.proto" GrpcServices="Both" />
         <Protobuf Include="Protos\greet.proto" GrpcServices="Both" />
     </ItemGroup>
 

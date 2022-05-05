@@ -16,9 +16,11 @@ namespace Calzolari.Grpc.AspNetCore.Validation
         public static IServiceCollection AddGrpcValidation(this IServiceCollection services)
         {
             services.AddScoped<IValidatorLocator>(provider => new ServiceCollectionValidationProvider(provider));
-            
+
             if (services.All(r => r.ServiceType != typeof(IValidatorErrorMessageHandler)))
                 services.AddSingleton<IValidatorErrorMessageHandler, DefaultErrorMessageHandler>();
+
+            services.AddScoped<GrpcRequestState>();
 
             return services;
         }
@@ -55,7 +57,7 @@ namespace Calzolari.Grpc.AspNetCore.Validation
         /// <param name="validator">configure validation rules</param>
         /// <typeparam name="TMessage">grpc message type</typeparam>
         /// <returns></returns>
-        public static IServiceCollection AddInlineValidator<TMessage>(this IServiceCollection services, 
+        public static IServiceCollection AddInlineValidator<TMessage>(this IServiceCollection services,
             Action<AbstractValidator<TMessage>> validator)
         {
             services.AddSingleton<IValidator<TMessage>>(new Validation.InlineValidator<TMessage>(validator));
