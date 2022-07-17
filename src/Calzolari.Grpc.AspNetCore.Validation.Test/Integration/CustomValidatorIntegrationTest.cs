@@ -15,7 +15,8 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Test.Integration
             _factory = factory
                 .WithWebHostBuilder(builder => builder.ConfigureTestServices(services =>
                 {
-                    services.AddValidator<HelloRequestValidator>();
+                    //services.AddValidator<HelloRequestValidator>();
+                    services.AddValidators();
                     services.AddGrpcValidation();
                 }));
         }
@@ -53,6 +54,7 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Test.Integration
             var rpcException = await Assert.ThrowsAsync<RpcException>(Action);
             Assert.Equal(StatusCode.InvalidArgument, rpcException.Status.StatusCode);
         }
+
         public class HelloRequestValidator : AbstractValidator<HelloRequest>
         {
             public HelloRequestValidator()
