@@ -3,7 +3,7 @@
   <PropertyGroup>
 	  <TargetFramework>net6.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>6.1.1</Version>
+    <Version>6.2.0</Version>
     <Authors>Anthony Giretti</Authors>
     <Company>Calzolari</Company>
     <Product>Calzolari.Grpc.Net.Client.Validation</Product>
@@ -14,7 +14,8 @@
     <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
     <PackageIcon>calzolari.png</PackageIcon>
     <PackageIconUrl />
-    <AssemblyVersion>6.1.1.0</AssemblyVersion>
+    <AssemblyVersion>6.2.0</AssemblyVersion>
+    <FileVersion>6.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
