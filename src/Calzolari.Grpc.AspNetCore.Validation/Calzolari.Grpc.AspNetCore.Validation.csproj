@@ -1,22 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <PackageId>Calzolari.Grpc.AspNetCore.Validation</PackageId>
-        <Version>3.5.0</Version>
+        <Version>6.2.0</Version>
         <Authors>Anthony Giretti</Authors>
         <PackageTags>grpc;dotnet;validator;validation;request-validation;aspnetcore</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageProjectUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</PackageProjectUrl>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <DocumentationFile>bin\Debug\Calzolari.Grpc.AspNetCore.Validation.xml</DocumentationFile>
         <Company>Calzolari</Company>
         <Product>Calzolari.Grpc.AspNetCore.Validation</Product>
-        <AssemblyVersion>3.5.0.0</AssemblyVersion>
+        <AssemblyVersion>6.2.0</AssemblyVersion>
         <PackageLicenseFile>license.txt</PackageLicenseFile>
         <Description>Request message validator for Grpc.AspNetCore</Description>
         <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
         <PackageIcon>calzolari.png</PackageIcon>
         <PackageIconUrl />
+        <FileVersion>6.2.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -32,12 +32,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation" Version="10.3.3" />
-      <PackageReference Include="Grpc.AspNetCore" Version="2.39.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj" />
+      <PackageReference Include="FluentValidation" Version="11.1.0" />
+      <PackageReference Include="Grpc.AspNetCore" Version="2.47.0" />
+      <PackageReference Include="System.Text.Json" Version="6.0.5" />
     </ItemGroup>
 
     <ItemGroup>
@@ -49,6 +46,10 @@
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj" />
     </ItemGroup>
 
 </Project>

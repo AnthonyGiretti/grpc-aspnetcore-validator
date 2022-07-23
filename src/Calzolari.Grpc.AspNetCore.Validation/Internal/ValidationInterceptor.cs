@@ -15,9 +15,8 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
             _locator = locator;
             _handler = handler;
         }
-
         public override async Task<TResponse> UnaryServerHandler<TRequest, TResponse>(TRequest request, 
-                                                                                      ServerCallContext context, 
+                                                                                      ServerCallContext context,
                                                                                       UnaryServerMethod<TRequest, TResponse> continuation)
         {
             await ValidateRequest(request);
@@ -26,7 +25,7 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
 
         public override async Task ServerStreamingServerHandler<TRequest, TResponse>(TRequest request, 
                                                                                      IServerStreamWriter<TResponse> responseStream, 
-                                                                                     ServerCallContext context, 
+                                                                                     ServerCallContext context,
                                                                                      ServerStreamingServerMethod<TRequest, TResponse> continuation)
         {
             await ValidateRequest(request);

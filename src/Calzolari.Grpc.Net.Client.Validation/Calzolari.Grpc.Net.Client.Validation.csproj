@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+	  <TargetFramework>net6.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>3.3.0</Version>
+    <Version>6.2.0</Version>
     <Authors>Anthony Giretti</Authors>
     <Company>Calzolari</Company>
     <Product>Calzolari.Grpc.Net.Client.Validation</Product>
@@ -14,6 +14,8 @@
     <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
     <PackageIcon>calzolari.png</PackageIcon>
     <PackageIconUrl />
+    <AssemblyVersion>6.2.0</AssemblyVersion>
+    <FileVersion>6.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,12 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.Core" Version="2.40.0" />
-    <PackageReference Include="System.Text.Json" Version="5.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj" />
+    <PackageReference Include="Grpc.Core" Version="2.46.3" />
+    <PackageReference Include="System.Text.Json" Version="6.0.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +36,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Calzolari.Grpc.Domain\Calzolari.Grpc.Domain.csproj" />
   </ItemGroup>
 
 </Project>

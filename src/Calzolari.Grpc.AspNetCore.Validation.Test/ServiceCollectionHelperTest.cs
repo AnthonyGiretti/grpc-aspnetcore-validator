@@ -19,6 +19,20 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Test
             // Then
             provider.GetRequiredService<IValidator<TestMessage>>();
         }
+
+        [Fact]
+        public void RegisterValidatorsTest()
+        {
+            // Given
+            var services = new ServiceCollection();
+
+            // When
+            services.AddValidators();
+            var provider = services.BuildServiceProvider();
+
+            // Then
+            provider.GetRequiredService<IValidator<TestMessage>>();
+        }
     }
 
 
