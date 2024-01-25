@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net8.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>8.0.0</Version>
     <Authors>Anthony Giretti</Authors>
@@ -16,6 +15,7 @@
     <PackageIconUrl />
     <AssemblyVersion>8.0.0</AssemblyVersion>
     <FileVersion>8.0.0</FileVersion>
+    <TargetFrameworks>net8.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
