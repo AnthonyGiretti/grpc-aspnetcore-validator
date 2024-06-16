@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net8.0</TargetFramework>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
     <Authors>Anthony Giretti</Authors>
     <Company>Calzolari</Company>
@@ -15,6 +14,7 @@
 <PackageIcon>calzolari.png</PackageIcon>
     <PackageIconUrl />
     <FileVersion>8.0.0</FileVersion>
+    <TargetFrameworks>net8.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
