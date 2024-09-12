@@ -34,7 +34,7 @@
     <ItemGroup>
       <PackageReference Include="FluentValidation" Version="11.4.0" />
       <PackageReference Include="Grpc.AspNetCore" Version="2.59.0" />
-      <PackageReference Include="System.Text.Json" Version="8.0.0" />
+      <PackageReference Include="System.Text.Json" Version="8.0.4" />
     </ItemGroup>
 
     <ItemGroup>
