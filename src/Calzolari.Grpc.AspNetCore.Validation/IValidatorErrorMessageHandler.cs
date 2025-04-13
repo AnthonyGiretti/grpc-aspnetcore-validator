@@ -2,10 +2,9 @@
 using System.Threading.Tasks;
 using FluentValidation.Results;
 
-namespace Calzolari.Grpc.AspNetCore.Validation
+namespace Calzolari.Grpc.AspNetCore.Validation;
+
+public interface IValidatorErrorMessageHandler
 {
-    public interface IValidatorErrorMessageHandler
-    {
-        Task<string> HandleAsync(IList<ValidationFailure> failures);
-    }
+    Task<string> HandleAsync(IList<ValidationFailure> failures);
 }

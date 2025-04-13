@@ -59,7 +59,7 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
                 {
                     var message = await _handler.HandleAsync(results.Errors);
                     var validationMetadata = results.Errors.ToValidationMetadata();
-                    throw new RpcException(new Status(StatusCode.InvalidArgument, message), validationMetadata);
+                    throw new ValidationRpcException(new Status(StatusCode.InvalidArgument, message), validationMetadata);
                 }
             }
         }

@@ -23,14 +23,10 @@ namespace Calzolari.Grpc.AspNetCore.Validation.Internal
             message.Append($"Property {failure.PropertyName} failed validation.");
 
             if (!string.IsNullOrEmpty(failure.ErrorCode))
-            {
                 message.Append($" Error code was: {failure.ErrorCode}");
-            }
 
             if (!string.IsNullOrEmpty(failure.ErrorMessage))
-            {
                 message.Append($" Error was: {failure.ErrorMessage}");
-            }
 
             return message.ToString();
         }

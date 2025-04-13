@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>8.1.0</Version>
+    <Version>8.2.0</Version>
     <Authors>Anthony Giretti</Authors>
     <Company>Calzolari</Company>
     <Product>Calzolari.Grpc.Net.Client.Validation</Product>
@@ -13,8 +13,8 @@
     <RepositoryUrl>https://github.com/AnthonyGiretti/grpc-aspnetcore-validator</RepositoryUrl>
     <PackageIcon>calzolari.png</PackageIcon>
     <PackageIconUrl />
-    <AssemblyVersion>8.1.0</AssemblyVersion>
-    <FileVersion>8.1.0</FileVersion>
+    <AssemblyVersion>8.2.0</AssemblyVersion>
+    <FileVersion>8.2.0</FileVersion>
     <TargetFrameworks>net8.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="Grpc.Core" Version="2.46.6" />
-    <PackageReference Include="System.Text.Json" Version="8.0.3" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
