@@ -140,6 +140,19 @@ public class Startup
 }
 ```
 
+#### Catch Server Side validation errors
+
+```csharp
+    try
+    {
+        //...
+    }
+    catch (ValidationRpcException ex)
+    {
+        // Handle any validation exceptions that occur during the process
+    }
+```
+
 ## How to test validation
 
-If you want to write integration tests. [This test sample](src/Grpc.AspNetCore.FluentValidation.Test/Integration/) may help you.
+If you want to write integration tests. [This test sample](https://github.com/AnthonyGiretti/grpc-aspnetcore-validator/tree/master/src/Calzolari.Grpc.AspNetCore.Validation.Test/Integration) may help you.
